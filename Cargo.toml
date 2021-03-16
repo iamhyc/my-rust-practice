@@ -1,2 +1,2 @@
 [workspace]
-members = ["basics"]
+members = ["rust-basics"]

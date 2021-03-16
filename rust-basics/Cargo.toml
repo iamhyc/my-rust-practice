@@ -1,5 +1,5 @@
 [package]
-name = "basics"
+name = "rust-basics"
 version = "0.1.0"
 authors = ["iamhyc <sudofree@163.com>"]
 edition = "2018"
