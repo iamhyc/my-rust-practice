@@ -9,7 +9,7 @@ fn main() {
     // basic IO
     let mut tmp = String::new();
     io::stdin().read_line( &mut tmp ).expect("Oops.");
-    println!("this trash is {}.", tmp);
+    println!("this trash is \"{}\".", tmp.trim());
 
     // basic shadowing
     let a = 5;
