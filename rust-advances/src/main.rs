@@ -17,6 +17,11 @@ fn test_ownership(str: String) -> String {
     //(non-sense but interesting...)
 }
 
+fn test_mut_literal(str: &str) {
+    // *str = "Bazinga!";
+    println!("nothing serious happened. {}", str);
+}
+
 /** doc line? okay, this is the main function. */
 fn main() {
     // definition of scope
@@ -33,5 +38,12 @@ fn main() {
     println!("test move: {}", ss);
     
     // reference or borrowing
-    
+    /*
+     * when using borrowing (copy/drop trait), the assigned variable keeps "mut" attribute;
+     * when using reference, reference itself (i.e., the pointer) is borrowed;
+     * Moreover, "&var" is always okay, "&mut var" only okay with one-time borrowing (::sad)
+    */
+    let s = "literal_string";
+    test_mut_literal(&s);
+
 }
