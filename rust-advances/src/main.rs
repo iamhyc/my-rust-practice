@@ -1,6 +1,9 @@
 
 use std::fmt;
 
+mod test_mod;            // firstly, declare the usage of mod file/folder
+use crate::test_mod::*;  // secondly, import the needed
+
 struct Integer(i32);
 // impl for struct Integer (with std::fmt interface)
 impl fmt::Display for Integer {
@@ -86,4 +89,6 @@ fn main() {
         println!("(if let) {:?}, x is not borrowed.", x);
     }
 
+    // test mod
+    test_mod::test( outmost_mod::OUTMOST_VAR );
 }
