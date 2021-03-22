@@ -16,7 +16,10 @@ pub mod outmost_mod {
 
 }
 
+/** compile and run only when run `cargo test` */
+#[cfg(test)]
 pub mod vector_mod {
+    #[test]
     pub fn test() {
         let mut v:Vec<String> = Vec::new();
         v.push( String::from("hello") );
@@ -34,6 +37,7 @@ pub mod vector_mod {
     //P.S. a `String` is a wrapper over a `Vec<u8>`.
 }
 
+#[cfg(test)]
 pub mod traits_mod {
     pub trait SayWow {
         fn print_wow(&self){ //one trait item to impl.
@@ -70,6 +74,7 @@ pub mod traits_mod {
         }
     }
     
+    #[test]
     pub fn test() {
         let sample = build_struct([0,1]);
         is_wow_struct(&sample);
@@ -80,6 +85,7 @@ pub mod traits_mod {
     }
 }
 
+#[cfg(test)]
 pub mod lifetime_mod {
     
     struct SelfishStruct<'a> {
@@ -94,6 +100,7 @@ pub mod lifetime_mod {
         }
     }
 
+    #[test]
     pub fn test() {
         let _tmp = SelfishStruct {_hidden:"test"}; //"test" is with <'static> lifetime
         _tmp.get("test");

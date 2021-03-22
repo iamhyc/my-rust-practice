@@ -91,7 +91,8 @@ fn main() {
 
     // test mod
     test_mod::test( outmost_mod::OUTMOST_VAR );
-    vector_mod::test();
-    traits_mod::test();
-    lifetime_mod::test();
+    /* the remaining moved to `cargo test` */
+    // vector_mod::test();
+    // traits_mod::test();
+    // lifetime_mod::test();
 }
