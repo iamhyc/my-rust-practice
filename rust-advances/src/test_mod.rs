@@ -29,6 +29,7 @@ pub mod vector_mod {
             *i += "aaa";          // *i is necessary
             (*i).push_str("bbb"); //*i is not necessary
         }
+        println!("vector_mod test pass.");
     }
     //P.S. a `String` is a wrapper over a `Vec<u8>`.
 }
@@ -75,6 +76,28 @@ pub mod traits_mod {
         is_wow_struct_raw(&sample);
         sample.get(0);
         sample.print_wow();
+        println!("traits_mod test pass.");
+    }
+}
+
+pub mod lifetime_mod {
+    
+    struct SelfishStruct<'a> {
+        _hidden: &'a str
+    }
+
+    impl<'a> SelfishStruct<'a> {
+        fn get(&self, ss:&'a str) {
+            if ss == self._hidden {
+                println!("you did it!");
+            }
+        }
+    }
+
+    pub fn test() {
+        let _tmp = SelfishStruct {_hidden:"test"}; //"test" is with <'static> lifetime
+        _tmp.get("test");
+        println!("lifetime_mod test pass.");
     }
 }
 

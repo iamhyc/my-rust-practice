@@ -93,4 +93,5 @@ fn main() {
     test_mod::test( outmost_mod::OUTMOST_VAR );
     vector_mod::test();
     traits_mod::test();
+    lifetime_mod::test();
 }
