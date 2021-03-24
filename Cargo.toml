@@ -1,6 +1,6 @@
 [workspace]
-members = ["rust-advances"]
+members = ["rust-finale"]
 
 ## disabled for vscode rls extension bug#1215
-# members = ["rust-basics", "rust-advances"]
+# members = ["rust-basics", "rust-advances", "rust-finale"]
 # default-members = ["rust-basics"]
