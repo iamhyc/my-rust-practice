@@ -1,18 +1,21 @@
 
 
-fn use_closure<T>(func:T)->i32
-    where T: Fn(i32) -> i32
+fn use_closure<T>(func:&mut T, val:i32)->i32
+    where T: FnMut(i32) -> i32 //FnMut is allowed to change environment
 {
-    func(10)
+    func(val)
 }
 
 fn main() {
-    let _tmp = 32;
+    let mut _tmp = 32;
 
-    //the type of "a:i32" and return is inferred from usage
-    let _closure = |a| {
-        a + _tmp
+    // the type of "a:i32" and return is inferred from usage
+    // (closure dynamically capture environment with overhead)
+    let mut _closure = |a| {
+        _tmp = a + _tmp;
+        _tmp
     };
 
-    println!( "Hello, world! {}", use_closure(_closure) );
+    println!( "Hello, {}!", use_closure(&mut _closure, 10) );
+    println!( "Hello, again! {}?", use_closure(&mut _closure, 10) );
 }
