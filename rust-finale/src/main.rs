@@ -1,5 +1,4 @@
 
-
 fn use_closure<T>(func:&mut T, val:i32)->i32
     where T: FnMut(i32) -> i32 //FnMut is allowed to change environment
 {
@@ -18,4 +17,11 @@ fn main() {
 
     println!( "Hello, {}!", use_closure(&mut _closure, 10) );
     println!( "Hello, again! {}?", use_closure(&mut _closure, 10) );
+
+    // smart pointers test
+    #[warn(dead_code)]
+    struct Temp(Box<Temp>); //dead definition, should use "Option<T>"
+    let _tmp = Box::new("hello");
+    drop(_tmp);
+    
 }
