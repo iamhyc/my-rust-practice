@@ -13,5 +13,6 @@ mod concurrency_test {
         });
 
         println!("response from main thread.");
+        _handler.join().unwrap();
     }
 }
