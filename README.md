@@ -7,7 +7,7 @@
     - ownership, structure, and common collections;
     - match control, error handling, and modules;
     - generic types, traits, and lifetime
-- [ ] Rust Finale
+- [x] Rust Finale
     - Iterators and Closures
     - Smart Pointers
     - Concurrency
