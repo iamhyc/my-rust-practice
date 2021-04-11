@@ -13,6 +13,7 @@
     - Concurrency
     - OOP, pattern and matching
     - (advanced features)
+- [ ] Rust Python binding (PyO3) practice ([link](https://github.com/VDM-Maintainer-Group/vdm-capability-library))
 - [ ] Rust Parallelism (with ndarray for MDP solver)
     - https://rust-lang-nursery.github.io/rust-cookbook/concurrency/parallel.html
 - [ ] QEMU for RISC-V on x86 (user mode / system mode?)
