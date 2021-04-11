@@ -38,7 +38,7 @@ mod oop_test {
     }
 
     struct HomogeneousObjects<T:Shared> {
-        members: Vec<T>
+        members: Vec<T>                 //static dispatch
     }
     impl<T> HomogeneousObjects<T>
     where T:Shared {
@@ -50,7 +50,7 @@ mod oop_test {
     }
     
     struct HeterogeneousObjects {
-        members: Vec<Box<dyn Shared>>
+        members: Vec<Box<dyn Shared>>   //dynamic dispatch
     }
     impl HeterogeneousObjects {
         fn do_action(&self) {
