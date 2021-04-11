@@ -33,5 +33,55 @@ mod concurrency_test {
 }
 
 mod oop_test {
+    trait Shared {
+        fn abstract_action(&self);
+    }
+
+    struct HomogeneousObjects<T:Shared> {
+        members: Vec<T>
+    }
+    impl<T> HomogeneousObjects<T>
+    where T:Shared {
+        fn do_action(&self) {
+            for item in self.members.iter() {
+                item.abstract_action();
+            }
+        }
+    }
     
+    struct HeterogeneousObjects {
+        members: Vec<Box<dyn Shared>>
+    }
+    impl HeterogeneousObjects {
+        fn do_action(&self) {
+            for item in self.members.iter() {
+                item.abstract_action();
+            }
+        }
+    }
+
+    struct ObjectA;
+    struct ObjectB;
+    impl Shared for ObjectA {
+        fn abstract_action(&self){ println!("I am Object A.") }
+    }
+    impl Shared for ObjectB {
+        fn abstract_action(&self){ println!("I am Object B.") }
+    }
+
+    #[test]
+    fn test_impl() {
+        let _tmp = HomogeneousObjects {
+            members : vec![ObjectA{}, ObjectA{}]
+        };
+        _tmp.do_action();
+        
+        let _tmp = HeterogeneousObjects {
+            members : vec![
+                Box::new(ObjectA{}),
+                Box::new(ObjectB{})
+            ]
+        };
+        _tmp.do_action();
+    }
 }
